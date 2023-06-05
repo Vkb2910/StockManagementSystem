@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Profile</title>
+
+</head>
+<body>
+    <h1>User Profile</h1>
+
+    <form th:action="@{/profile}" method="post">
+        <label for="name">Username:</label>
+        <input type="text" id="username" name="name" th:value="${user.name}" disabled>
+
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" th:value="${user.email}" required>
+
+        <label for="contactNumber">Contact:</label>
+        <input type="text" id="firstName" name="contactNumber" th:value="${user.contactNumber}" required>
+
+        <label for="aadharNumber">Aadhar No:</label>
+        <input type="text" id="aadharNumber" name="aadharNumber" th:value="${user.aadharNumber}" required>
+
+        <input type="submit" value="Save Changes">
+    </form>
+</body>
+</html>

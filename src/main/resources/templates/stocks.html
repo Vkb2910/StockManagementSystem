@@ -1,0 +1,89 @@
+<!-- <!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Stocks</title>
+</head>
+<body>
+	<h1>All Stocks</h1>
+	<table>
+		<thead>
+			<tr>
+				<th>Name</th>
+				<th>Symbol</th>
+				<th>Type</th>
+				<th>Current Price</th>
+				<th>Expiry Date</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr th:each="stock : ${stocks}">
+				<td th:text="${stock.name}"></td>
+				<td th:text="${stock.symbol}"></td>
+				<td th:text="${stock.type}"></td>
+				<td th:text="${stock.currentPrice}"></td>
+				<td th:text="${stock.expiryDate}"></td>
+			</tr>
+		</tbody>
+	</table>
+	<a href="/signin">Click here for login</a>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+    <meta charset="ISO-8859-1">
+    <title>Insert title here</title>
+</head>
+
+<body>
+    <section>
+        <div class="container p-3">
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+                    <div class="card">
+                        <div class="card-header text-center fs-4">All Stocks</div>
+
+                        <th:block th:if="${session.msg}">
+                            <p class="text-center fs-6 text-success">[[${session.msg}]]</p>
+                            <th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+                        </th:block>
+
+                        <div class="card-body">
+                            <table class="table">
+                                <thead>
+                                    <tr>
+                                        <th>ID</th>
+                                        <th>Name</th>
+                                        <th>Symbol</th>
+                                        <th>Type</th>
+                                        <th>Current Price</th>
+                                        <th>Expiry Date</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr th:each="stock : ${stocks}">
+                                        <td th:text="${stock.id}"></td>
+                                        <td th:text="${stock.name}"></td>
+                                        <td th:text="${stock.symbol}"></td>
+                                        <td th:text="${stock.type}"></td>
+                                        <td th:text="${stock.currentPrice}"></td>
+                                        <td th:text="${stock.expiryDate}"></td>
+                                    </tr>
+                                </tbody>
+                                
+                            </table>
+                            <a href="/logout">Logout</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+
+</html>
+
+

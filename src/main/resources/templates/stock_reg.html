@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+	th:replace="base::layout(~{::section})">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<section>
+
+		<div class="container p-3">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center fs-4">Stock Registration</div>
+
+						<th:block th:if="${session.msg}">
+							<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+							<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+						</th:block>
+
+
+						<div class="card-body">
+							<form action="/stocks/new" method="post">
+								<div class="mb-3">
+									<label for="name" class="form-label">Name</label> <input
+										type="text" class="form-control" id="name" name="name"
+										required>
+								</div>
+								<div class="mb-3">
+									<label for="symbol" class="form-label">Symbol</label> <input
+										type="text" class="form-control" id="symbol" name="symbol"
+										required>
+								</div>
+								<div class="mb-3">
+									<label for="type" class="form-label">Type</label> <input
+										type="text" class="form-control" id="type" name="type"
+										required>
+								</div>
+								<div class="mb-3">
+									<label for="currentPrice" class="form-label">Current
+										Price</label> <input type="number" class="form-control"
+										id="currentPrice" name="currentPrice" required>
+								</div>
+								<div class="mb-3">
+									<label for="expiryDate" class="form-label">Expiry Date</label>
+									<input type="date" class="form-control" id="expiryDate"
+										name="expiryDate" required>
+								</div>
+								<button type="submit" class="btn btn-primary">Register</button>
+							</form>
+
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+	</section>
+
+
+
+</body>
+</html>
